@@ -33,7 +33,7 @@ const MyTodoList = () => {
     return (
         <>
             <h2 className='text-center text-4xl mb-4 mt-10 font-bold uppercase'>Welcome To Your To DO List</h2>
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto mb-[400px]">
        <table class="table w-full">
    
     <thead>
