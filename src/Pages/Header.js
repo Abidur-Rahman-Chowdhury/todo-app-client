@@ -1,6 +1,10 @@
+import { signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
+import auth from '../firebase.init';
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
   const menuItems = (
     <>
       <li>
@@ -10,12 +14,21 @@ const Navbar = () => {
       <li>
         <NavLink to="/todo">Create Your Todo</NavLink>
       </li>
-      <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
-      <li>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </li>
+      {!user && (
+        <>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/signup">Sign Up</NavLink>
+          </li>
+        </>
+          )}
+          {
+              user &&  <li>
+              <span onClick={()=> signOut(auth)}>Signout</span>
+            </li>
+          }
     </>
   );
   return (
@@ -45,7 +58,9 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <span className="btn btn-ghost normal-case text-xl text-purple-500 font-bold ">TODO APP</span>
+        <span className="btn btn-ghost normal-case text-xl text-purple-500 font-bold ">
+          TODO APP
+        </span>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0 gap-3">{menuItems}</ul>
