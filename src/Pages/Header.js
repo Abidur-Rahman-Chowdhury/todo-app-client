@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import auth from '../firebase.init';
 
 const Navbar = () => {
@@ -25,9 +25,15 @@ const Navbar = () => {
         </>
           )}
           {
-              user &&  <li>
+              user && <>
+                  <li>
+              <Link to='/myTodo' >My Todo List</Link>
+              </li>
+              <li>
               <span onClick={()=> signOut(auth)}>Signout</span>
-            </li>
+              </li>
+              
+              </>
           }
     </>
   );
