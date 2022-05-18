@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
+    <div className='mb-[210px]'>
       <h2 className="text-center uppercase text-4xl font-bold text-purple-500 mt-10">
         Welcome To TODO Web Application
      </h2>
