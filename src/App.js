@@ -2,7 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from './Pages/Footer';
 import Header from './Pages/Header';
 import Home from './Pages/Home';
-import Login from './Pages/Login';
+import Login from './Pages/Login/Login';
+
 
 function App() {
   return (
